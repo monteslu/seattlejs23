@@ -215,8 +215,24 @@
 				</section>
 
 				<section>
-					<h2>Telnet TO your browser?</h2>
+					<h3>demo</h3>
+					<pre><code data-trim data-noescape>
+import net from 'net';
+
+const socketServer = net.createServer((socket) => {
+  socket.on('data', (data) => {
+    console.log('received', data.toString());
+    socket.write(Buffer.from('back atcha, ' + data.toString()));
+  });
+});
+
+socketServer.listen(9000);
+					</code></pre>
 				</section>
+				
+				<!-- <section>
+					<h2>Telnet TO your browser?</h2>
+				</section> -->
 
 				<section>
 					<h2>Bypass the proxy server</h2>
